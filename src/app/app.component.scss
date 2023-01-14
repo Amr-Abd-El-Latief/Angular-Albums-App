@@ -1,0 +1,10 @@
+/**
+* basic app colors
+*/
+  @import "./assets/theme/light-theme/light-theme.scss";
+  
+  .App {
+    text-align: center;
+    background-color: var(--light-dark-white);
+  }
+  

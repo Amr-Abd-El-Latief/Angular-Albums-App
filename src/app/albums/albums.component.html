@@ -1,0 +1,12 @@
+<div>
+    <ul class="albums-grid">
+        <li *ngFor="let album of albums">
+            <app-album-card [album]="album"></app-album-card>
+        </li>
+    </ul>
+
+    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[20, 30, 50]"
+    (page)="getAlbumsPage($event)" aria-label="Select page">
+    </mat-paginator>
+
+</div>

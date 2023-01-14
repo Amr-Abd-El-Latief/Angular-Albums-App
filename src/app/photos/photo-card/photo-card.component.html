@@ -1,0 +1,12 @@
+
+<div class="photo-card" >
+      <div 
+        class="photo-card-image"
+        [ngStyle]="{'background-image': 'url(' + photo.thumbnailUrl + ')'}"
+       ></div>
+
+      <div class="text-container">
+        <div title="photo.title"><h4 >Photo Title: <p>{{photo.title?photo.title : 'No data for Photo title'}}</p></h4></div>
+      </div>
+
+  </div>

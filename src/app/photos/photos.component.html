@@ -1,0 +1,12 @@
+<div>
+    <ul class="photos-grid">
+        <li *ngFor="let photo of photos">
+            <app-photo-card  [photo]="photo"></app-photo-card>
+        </li>
+    </ul>
+
+    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[20, 30, 50]"
+    (page)="getPhotosPage($event)" aria-label="Select page">
+    </mat-paginator>
+
+</div>

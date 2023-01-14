@@ -1,0 +1,31 @@
+.photo-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    background-color: #ffffff;
+    cursor: pointer;
+  }
+  
+  .photo-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .text-container {
+    padding: 2px 16px;
+
+  }
+
+
+  .text-container p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 30ch;
+  }
+
+  .photo-card-image{
+    width:100%;
+    width: 150;
+    height: 193;
+    margin: 10
+  }
