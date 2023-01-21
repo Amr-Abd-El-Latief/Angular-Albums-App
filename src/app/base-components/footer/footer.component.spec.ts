@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FooterComponent } from './footer.component';
+import { By } from '@angular/platform-browser';
 
-describe('FooterComponent', () => {
+
+fdescribe('FooterComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
 
@@ -22,4 +23,10 @@ describe('FooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+   it('should have a footer message',()=>{
+    const footerMessage = fixture.debugElement.query(By.css('p')).nativeElement;
+    expect(footerMessage.innerHTML).toBe('Application for showing and reading about Albums');
+  })
+
 });

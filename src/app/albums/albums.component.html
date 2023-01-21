@@ -1,11 +1,16 @@
 <div>
+    <div class="spinner-container" *ngIf="albums.length<=0">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div *ngIf="albums.length>0">
     <ul class="albums-grid">
         <li *ngFor="let album of albums">
-            <app-album-card [album]="album"></app-album-card>
+            <app-album-card [album]="album" [users]="users"></app-album-card>
         </li>
     </ul>
+    </div>
 
-    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[20, 30, 50]"
+    <mat-paginator [length]="100" [pageSize]="20" [pageSizeOptions]="[20, 30, 50]"
     (page)="getAlbumsPage($event)" aria-label="Select page">
     </mat-paginator>
 

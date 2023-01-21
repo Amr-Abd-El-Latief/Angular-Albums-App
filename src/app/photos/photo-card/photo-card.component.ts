@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Photo } from 'src/app/AlbumTypes';
+import { Photo } from 'src/app/interfaces/AlbumTypes';
 
 @Component({
   selector: 'app-photo-card',
@@ -17,7 +17,6 @@ export class PhotoCardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
 
 }

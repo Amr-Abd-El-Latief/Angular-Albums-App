@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Album } from 'src/app/AlbumTypes';
+import { Album, User } from 'src/app/interfaces/AlbumTypes';
 
 @Component({
   selector: 'app-album-card',
@@ -13,9 +13,20 @@ export class AlbumCardComponent implements OnInit {
     id:0,
     title: "no Album exists"
   }; 
+  @Input() users: User[] = [];
+  user: User = {
+    id: 0,
+    name:"no Owner Data exist for this User",
+    userName:"no Owner Data exist for this User",
+  };
   constructor() { }
 
   ngOnInit(): void {
+    this.user = this.users.filter(item=>{
+      return item.id=== this.album.userId
+    
+    })[0];
+    alert("user: " + JSON.stringify(this.user))
   }
 
 }

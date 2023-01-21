@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Album } from '../AlbumTypes';
-import { AlbumsService } from '../service/albums.service';
+import { Album, User } from '../interfaces/AlbumTypes';
+import { AlbumsService } from './service/albums.service';
 import {PageEvent } from '@angular/material/paginator';
 
 @Component({
@@ -10,9 +10,15 @@ import {PageEvent } from '@angular/material/paginator';
 })
 export class AlbumsComponent implements OnInit {
   
-  public albums:Album[] = [];
+  public albums:Album[] = [];  
+  public users:User[] = [];  
   constructor(private albumsService:AlbumsService) { 
-    this. getAlbums(0,20);
+    let self= this;
+    this.getAlbums(0,20);
+   this.albumsService.getAllUsers().subscribe(res=>{
+      self.users = res;
+      
+    });
   }
 
   ngOnInit(): void {
@@ -27,9 +33,8 @@ export class AlbumsComponent implements OnInit {
     let self = this;
     console.log("paginator event : " +JSON.stringify($event))
     let start:number = $event.pageIndex*$event.pageSize-$event.pageSize;
-    let limit:number = start+$event.pageSize;
-    alert("start: " +start + " Limit : " +limit)
-    this.getAlbums(start, limit);
+    let limit:number = $event.pageSize;
+    self.getAlbums(start, limit);
   }
 
   /**

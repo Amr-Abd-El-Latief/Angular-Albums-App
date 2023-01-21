@@ -1,15 +1,17 @@
 <div class="album-card">
-    <a href="/photos" >
-        <img class="album-card-image" style="" />
-        <div class="text-container">
-            <div title="album.title">
-                <h4>Title: <p>No data for Album title</p>
-                </h4>
+    <div class="album-card-border">
+        <a routerLink="/photos/{{album['id']}}">
+            <img class="album-card-image" [src]="'https://via.placeholder.com/150/00ff'" />
+            <div class="text-container">
+                <div title="album.title">
+                    <h4>Title: <p>{{album?.title}}</p>
+                    </h4>
+                </div>
+                <div title={userName}>
+                    <h4> Owner: <p>{{user?.userName}}</p>
+                    </h4>
+                </div>
             </div>
-            <div title={userName}>
-                <h4> Owner:<p>userName</p>
-                </h4>
-            </div>
-        </div>
-    </a>
+        </a>
+    </div>
 </div>

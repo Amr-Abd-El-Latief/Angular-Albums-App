@@ -19,6 +19,11 @@
  
     list-style-type: none;
 }
+.spinner-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
 
 @media screen and (min-width: 769px) {

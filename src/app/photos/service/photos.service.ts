@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Photo } from '../../AlbumTypes';
+import { Photo } from '../../interfaces/AlbumTypes';
 import { HttpClient } from '@angular/common/http';
+import {Album_Base_URL} from '../../interfaces/Constants';
+import { Observable } from 'rxjs';
 
-const photosApi = "https://jsonplaceholder.typicode.com";
 
 const headers = {
   Accept: "application/json",
@@ -21,8 +22,8 @@ export class PhotosService {
  * @param {number} limit  end of the retrieved photos list
  * @returns set of albums data from start to the limit
  */
-getPhotos(albumId:number,start:number,limit:number) {
-  return this.http.get(`${photosApi}/photos?albumId=${albumId}&_start=${start}&_limit=${limit}`, { headers });
+getPhotos(albumId:number,start:number,limit:number):Observable<Photo[]> {
+  return this.http.get<Photo[]>(`${Album_Base_URL}/photos?albumId=${albumId}&_start=${start}&_limit=${limit}`, { headers });
 }
 
 }

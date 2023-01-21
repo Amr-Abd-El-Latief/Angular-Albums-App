@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Photo } from 'src/app/AlbumTypes';
+import { Photo } from 'src/app/interfaces/AlbumTypes';
 import { PhotosService } from './service/photos.service';
 import {PageEvent } from '@angular/material/paginator';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-photos',
@@ -10,12 +11,14 @@ import {PageEvent } from '@angular/material/paginator';
 })
 export class PhotosComponent implements OnInit {
   public photos:Photo[] = [];          // list of photos to show in the component
-  private albumId:number=1;            // albumId (primary key) of the retrieved photos
-  constructor(private photosService:PhotosService) { }
+  private albumId:any='1';            // albumId (primary key) of the retrieved photos
+  constructor(private photosService:PhotosService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     let self= this;
+    this.albumId = this.activatedRoute.snapshot.paramMap.get('albumId');
     this.getPhotos(self.albumId,0,20);
+
   }
 
 
@@ -28,7 +31,6 @@ export class PhotosComponent implements OnInit {
     let self = this;
     let start:number = $event.pageIndex*$event.pageSize-$event.pageSize;
     let limit:number = start+$event.pageSize;
-    alert("start: " +start + " Limit : " +limit)
     this.getPhotos(this.albumId,start, limit);
   }
 

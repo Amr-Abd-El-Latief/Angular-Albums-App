@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AlbumCardComponent } from './album-card.component';
+import { By } from '@angular/platform-browser';
+
 
 describe('AlbumCardComponent', () => {
   let component: AlbumCardComponent;
@@ -22,4 +23,11 @@ describe('AlbumCardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have an image element',()=>{
+    const albumImage = fixture.debugElement.query(By.css('img')).nativeElement;
+    expect(albumImage.innerHTML).toBeTruthy();
+  })
+
+
 });
