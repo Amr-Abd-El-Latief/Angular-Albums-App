@@ -4,11 +4,11 @@
             <img class="album-card-image" [src]="'https://via.placeholder.com/150/00ff'" />
             <div class="text-container">
                 <div title="album.title">
-                    <h4>Title: <p>{{album?.title}}</p>
+                    <h4 id="albumTitle">Title: <p id="albumTitleValue">{{album?.title}}</p>
                     </h4>
                 </div>
                 <div title={userName}>
-                    <h4> Owner: <p>{{user?.userName}}</p>
+                    <h4 id="albumOwner"> Owner: <p id="albumOwnerValue">{{user?.username}}</p>
                     </h4>
                 </div>
             </div>

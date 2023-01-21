@@ -25,7 +25,7 @@ export interface Photo{
 export interface User{
   id: number,
   name:string,
-  userName:string,
+  username:string,
   email?:string,
   address?:Address,
   geo?:Geo,

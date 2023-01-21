@@ -17,7 +17,7 @@ export class AlbumCardComponent implements OnInit {
   user: User = {
     id: 0,
     name:"no Owner Data exist for this User",
-    userName:"no Owner Data exist for this User",
+    username:"no Owner Data exist for this User",
   };
   constructor() { }
 
@@ -26,7 +26,6 @@ export class AlbumCardComponent implements OnInit {
       return item.id=== this.album.userId
     
     })[0];
-    alert("user: " + JSON.stringify(this.user))
   }
 
 }
