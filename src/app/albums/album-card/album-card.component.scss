@@ -4,33 +4,41 @@
     width: 100%;
     background-color: var(--white);
     cursor: pointer;
+
+
+    &:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .album-card-border{
+      padding: 0.6rem;
+      .text-container {
+        padding: 2px 16px;
+        p{
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 15ch;
+        }
+    
+      }
+    
+      .album-card-image{
+        width:100%
+      }
+  
+      a {
+        text-decoration:none
+      }
+    }
   }
   
-  .album-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
+
   
-  .text-container {
-    padding: 2px 16px;
-
-  }
-
-  .text-container p{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 15ch;
-  }
 
 
-  .album-card-image{
-    width:100%
-  }
+
+
   
-  .album-card-border{
-    padding: 0.6rem;
-  }
+  
 
-  a {
-    text-decoration:none
-  }

@@ -1,8 +1,9 @@
+@import "../../assets/theme/light-theme/light-theme.scss";
 /* Style the footer */
 footer {
-    background-color: var(--footer-background);
+    background-color: $footer-background;
     padding: 10px;
     text-align: center;
-    color: var(--footer-background)
+    color: $light-dark-white
   }
   

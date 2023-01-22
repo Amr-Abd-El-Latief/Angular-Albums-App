@@ -8,22 +8,25 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-  }
+    li {
+      padding: 10px 15px;
+      text-align:center;
+    }
 
-  .photos-grid li {
-    padding: 10px 15px;
-    text-align:center;
-  }
-
-  .photos-grid ul {
+    ul {
  
-    list-style-type: none;
-}
+      list-style-type: none;
+  }
+  
+  }
 
 .spinner-container{
   display: flex;
   justify-content: center;
   width: 100%;
+  .albums-spinner{
+    margin-top: 2rem;
+  }
 }
 
 @media screen and (min-width: 769px) {
