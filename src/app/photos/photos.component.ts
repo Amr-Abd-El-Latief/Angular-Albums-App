@@ -11,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
 export class PhotosComponent implements OnInit {
   public photos:Photo[] = [];          // list of photos to show in the component
   private albumId:any='1';            // albumId (primary key) of the retrieved photos
-  private userId:any='1';            // userId of album owner of the retrieved photos
 
   constructor(private photosService:PhotosService,private activatedRoute: ActivatedRoute) { }
 
@@ -24,7 +23,6 @@ export class PhotosComponent implements OnInit {
   ngOnInit(): void {
     let self= this;
     this.albumId = this.activatedRoute.snapshot.paramMap.get('albumId');
-    this.userId = this.activatedRoute.snapshot.paramMap.get('userId');
     this.getPhotos(self.albumId,0,20);
   }
 
@@ -51,5 +49,9 @@ export class PhotosComponent implements OnInit {
     this.photosService.getPhotos(albumId,start,limit).subscribe(res=>{
       self.photos = <Photo[]>res;
    })
+  }
+
+  public setAlbumId(albumId:number){
+   this.albumId = albumId;
   }
 }

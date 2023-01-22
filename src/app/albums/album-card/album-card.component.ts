@@ -22,8 +22,9 @@ export class AlbumCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let self = this;
     this.user = this.users.filter(item=>{
-      return item.id=== this.album.userId
+      return item.id=== self.album.userId
     
     })[0];
   }

@@ -41,4 +41,15 @@ fdescribe('PhotosComponent', () => {
     const photosPaginator = fixture.debugElement.query(By.css('mat-paginator')).nativeElement;
     expect(photosPaginator).toBeTruthy();
   })
+
+  it("it should calculate limit and start with right values", function () {
+  component.setAlbumId(1);
+    spyOn(component, "getPhotos");
+    let tempEvent = { "previousPageIndex": 0, "pageIndex": 1, "pageSize": 20, "length": 100 };
+    component.getPhotosPage(tempEvent);
+    fixture.detectChanges();
+    /* Maybe this line unnecessary, cant try it atm */
+   
+    expect(component.getPhotos).toHaveBeenCalledOnceWith(1,0,20);
+  });
 });
