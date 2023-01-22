@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Photo } from 'src/app/interfaces/AlbumTypes';
+import { Photo, User } from 'src/app/interfaces/AlbumTypes';
 import { PhotosService } from './service/photos.service';
 import {PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
-
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',
@@ -12,11 +11,20 @@ import { ActivatedRoute } from '@angular/router';
 export class PhotosComponent implements OnInit {
   public photos:Photo[] = [];          // list of photos to show in the component
   private albumId:any='1';            // albumId (primary key) of the retrieved photos
+  private userId:any='1';            // userId of album owner of the retrieved photos
+
   constructor(private photosService:PhotosService,private activatedRoute: ActivatedRoute) { }
+
+    owner: User = {
+      id: 0,
+      name:"no Owner Data exist for this User",
+      username:"no Owner Data exist for this User",
+    };
 
   ngOnInit(): void {
     let self= this;
     this.albumId = this.activatedRoute.snapshot.paramMap.get('albumId');
+    this.userId = this.activatedRoute.snapshot.paramMap.get('userId');
     this.getPhotos(self.albumId,0,20);
   }
 
@@ -27,7 +35,6 @@ export class PhotosComponent implements OnInit {
    * @param $event paginator Event content data on click next page Event
    */
   getPhotosPage($event:PageEvent){
-    let self = this;
     let start:number = $event.pageIndex*$event.pageSize-$event.pageSize;
     let limit:number = start+$event.pageSize;
     this.getPhotos(this.albumId,start, limit);

@@ -1,7 +1,7 @@
 <div class="album-card">
     <div class="album-card-border">
         <a routerLink="/photos/{{album['id']}}">
-            <img class="album-card-image" [src]="'https://via.placeholder.com/150/00ff'" />
+            <img class="album-card-image" src="https://via.placeholder.com/150/{{user['id']}}00"/>
             <div class="text-container">
                 <div title="album.title">
                     <h4 id="albumTitle">Title: <p id="albumTitleValue">{{album?.title}}</p>

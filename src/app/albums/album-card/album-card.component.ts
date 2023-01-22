@@ -14,7 +14,7 @@ export class AlbumCardComponent implements OnInit {
     title: "no Album exists"
   }; 
   @Input() users: User[] = [];
-  user: User = {
+  public user: User = {
     id: 0,
     name:"no Owner Data exist for this User",
     username:"no Owner Data exist for this User",
