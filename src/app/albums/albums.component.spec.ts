@@ -36,9 +36,21 @@ fdescribe('AlbumsComponent', () => {
     expect(cards.length).toBe(5);
   });
 
-  it('should have paginator',()=>{
+  it('should have paginator', () => {
     const albumPaginator = fixture.debugElement.query(By.css('mat-paginator ')).nativeElement;
     expect(albumPaginator).toBeTruthy();
   })
+
+
+  it("it should calculate limit and start with right values", function () {
+    spyOn(component, "getAlbums");
+    let tempEvent = { "previousPageIndex": 0, "pageIndex": 1, "pageSize": 20, "length": 100 };
+    component.getAlbumsPage(tempEvent);
+    fixture.detectChanges();
+    /* Maybe this line unnecessary, cant try it atm */
+   
+    expect(component.getAlbums).toHaveBeenCalledOnceWith(0,20);
+  });
+
 
 });

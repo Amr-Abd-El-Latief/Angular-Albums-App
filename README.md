@@ -1,27 +1,34 @@
-# AlbumsApp
+# Albums App 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
+Albums is an application for showing Albums with cover of each album, and if you choose certain album, you can see many photos related to this Album.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## how to setup
 
-## Code scaffolding
+    -	 Using terminal:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+            1-	Reach by terminal to the app main folder besides the package.json file
+            2-	Run in the terminal:    npm install 
+            3-	After terminal finishes installing the application libraries, run command: npm start
+            4-	Application would be in the link: http://localhost:4200/
 
-## Build
+   -     How To run unit test: 
+        
+            1 - Reach by terminal to the app main folder besides the package.json file.
+            2 – in terminal run command:  ng test   
+ 
+             And for Code Covergae: 
+          
+            3 - ng test --code-coverage
+              
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Used Libraries
 
-## Running unit tests
+        1-	Angular Material
+        2-	Bootstrap
+        3 - jasmin (unit testing)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Used Components
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+        1-	mat-paginator
+        2 - mat-progress-spinner
