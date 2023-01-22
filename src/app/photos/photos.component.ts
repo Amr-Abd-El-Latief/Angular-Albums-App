@@ -18,7 +18,6 @@ export class PhotosComponent implements OnInit {
     let self= this;
     this.albumId = this.activatedRoute.snapshot.paramMap.get('albumId');
     this.getPhotos(self.albumId,0,20);
-
   }
 
 

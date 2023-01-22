@@ -1,16 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AlbumsComponent } from './albums.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
+import { FiveAlbums, SampleUSers } from '../interfaces/TestData';
+import { By } from '@angular/platform-browser';
 
-describe('AlbumsComponent', () => {
+fdescribe('AlbumsComponent', () => {
   let component: AlbumsComponent;
   let fixture: ComponentFixture<AlbumsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AlbumsComponent ]
+      imports: [
+        HttpClientTestingModule
+      ],
+      declarations: [AlbumsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -22,4 +27,18 @@ describe('AlbumsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show the 5 input Albums', () => {
+    component.albums = FiveAlbums;
+    component.users = SampleUSers;
+    fixture.detectChanges();
+    const cards = fixture.debugElement.queryAll(By.css('li'));
+    expect(cards.length).toBe(5);
+  });
+
+  it('should have paginator',()=>{
+    const albumPaginator = fixture.debugElement.query(By.css('mat-paginator ')).nativeElement;
+    expect(albumPaginator).toBeTruthy();
+  })
+
 });

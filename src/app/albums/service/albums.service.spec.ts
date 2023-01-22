@@ -3,7 +3,7 @@ import { AlbumsService } from './albums.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
 import { Album } from 'src/app/interfaces/AlbumTypes';
 import { Album_Base_URL } from 'src/app/interfaces/Constants';
-import { AllAlbums, FiveAlbums } from 'src/app/interfaces/TestData';
+import { FiveAlbums } from 'src/app/interfaces/TestData';
 
 fdescribe('AlbumsService', () => {
   let service: AlbumsService;
